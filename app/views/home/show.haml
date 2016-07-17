@@ -1,4 +1,12 @@
-%h1
-  Hello, world!
-%span.label.label-success
-  Success
+.container
+  %h3
+    Slack Files
+  #page-content
+    .tab-base
+      %ul.nav.nav-tabs{:role => "tablist"}    
+        %li.active{:role => "presentation"}
+          %a{"aria-controls" => "edits", "date-toggle" => "tab", :href => "#channel_list", :role => "tab"} Get Channel List
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "notifications", "date-toggle" => "tab", :href => "#file_list", :role => "tab"} Get File List
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "notifications", "date-toggle" => "tab", :href => "#delete_files", :role => "tab"} Delete Files
