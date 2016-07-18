@@ -1,12 +1,34 @@
-.container
-  %h3
-    Slack Files
-  #page-content
-    .tab-base
-      %ul.nav.nav-tabs{:role => "tablist"}    
-        %li.active{:role => "presentation"}
-          %a{"aria-controls" => "edits", "date-toggle" => "tab", :href => "#channel_list", :role => "tab"} Get Channel List
-        %li{:role => "presentation"}
-          %a{"aria-controls" => "notifications", "date-toggle" => "tab", :href => "#file_list", :role => "tab"} Get File List
-        %li{:role => "presentation"}
-          %a{"aria-controls" => "notifications", "date-toggle" => "tab", :href => "#delete_files", :role => "tab"} Delete Files
+/ .container
+/   %h3
+/     Slack Files
+/   .tab-base
+/     %ul.nav.nav-tabs{:role => "tablist"}    
+/       %li.active{:role => "presentation"}
+/         %a{"aria-controls" => "channel_list", "date-toggle" => "tab", :href => "#channel_list", :role => "tab"} Get Channel List
+/       %li{:role => "presentation"}
+/         %a{"aria-controls" => "file_list", "date-toggle" => "tab", :href => "#file_list", :role => "tab"} Get File List
+/       %li{:role => "presentation"}
+/         %a{"aria-controls" => "delete_files", "date-toggle" => "tab", :href => "#delete_files", :role => "tab"} Delete Files
+/   .tab-content
+/     #channel_list.tab-pane.active{:role => "tabpanel"}
+/       = render partial: 'channel_list'
+/     #file_list.tab-pane{:role => "tabpanel"}
+/       = render partial: 'file_list'
+/     #delete_files.tab-pane{:role => "tabpanel"}
+/       = render partial: 'delete_files'
+
+.container.page-content
+  %ul.nav.nav-tabs
+    %li.active
+      %a{"data-toggle" => "tab", :href => "#channel_list"} Channel List
+    %li
+      %a{"data-toggle" => "tab", :href => "#file_list"} File List
+    %li
+      %a{"data-toggle" => "tab", :href => "#delete_files"} Delete Files
+  .tab-content
+    #channel_list.tab-pane.fade.in.active
+      = render 'channel_list'
+    #file_list.tab-pane.fade
+      = render 'file_list'
+    #delete_files.tab-pane.fade
+      = render 'delete_files'
